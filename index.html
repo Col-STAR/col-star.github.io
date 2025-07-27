@@ -76,12 +76,12 @@
 							<div class="image"><img src="images/pic01.png" alt="" /></div><div class="content">
 								<h2>Portfolio<br />
 								作品集</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
+								<p>在城市里我无处可去</p>
 							</div>
 						</section>
 						<section class="spotlight">
 							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
-								<h2>流浪在21世纪<br />
+								<h2>流浪在<br />
 								21世纪</h2>
 								<p>那些生活里的瞬间</p>
 							</div>
@@ -102,6 +102,55 @@
 								<h2>欢迎来到周五晚上的海滩</h2>
 								<p>这里没有人，气温适宜，音乐无处不在<br />
 								欣赏远处的月亮与大海，享受一个宁静的夜晚吧</p>
+							
+                                <!-- Four --><!-- 音乐播放器 -->
+					<section id="music-player" style="text-align: center; padding: 2em;">
+  						<h2>🎵 海滩播放列表</h2>
+  						<audio id="audio" controls autoplay>
+ 						   	<source src="music/song1.mp3" type="audio/mpeg">
+    							你的浏览器无法播放此音频，请尝试更新浏览器或使用其他浏览器。
+ 						</audio>
+			  			<div style="margin-top: 1em;">
+			   				<button onclick="prevSong()">⏮ 上一首</button>
+			    				<button onclick="nextSong()">⏭ 下一首</button>
+						  </div>
+						  <p id="now-playing" style="margin-top: 1em;">正在播放: song1.mp3</p>
+						</section>
+						
+						<script>
+						  const playlist = [
+						    'music/song1.mp3',
+						    'music/song2.mp3',
+						    'music/song3.mp3',
+						    'music/song4.mp3',
+						    'music/song5.mp3',
+						    'music/song6.mp3'
+						  ];
+						
+						  let currentTrack = 0;
+						  const audio = document.getElementById('audio');
+						  const nowPlaying = document.getElementById('now-playing');
+						
+						  // 自动加载和播放当前曲目
+						  function loadTrack(index) {
+						    audio.src = playlist[index];
+						    audio.play();
+						    nowPlaying.innerText = "正在播放: " + playlist[index].split('/').pop();
+						  }
+						
+						  function nextSong() {
+						    currentTrack = (currentTrack + 1) % playlist.length;
+						    loadTrack(currentTrack);
+						  }
+						
+						  function prevSong() {
+						    currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+						    loadTrack(currentTrack);
+						  }
+						
+						  // 自动播放下一首（播放完自动切换）
+						  audio.addEventListener('ended', nextSong);
+						</script>
 							</header>
 							<ul class="features">
 								<li class="icon fa-paper-plane">
@@ -131,53 +180,6 @@
 							</ul>
 						</div>
 					</section>
-                                <!-- Four --><!-- 音乐播放器 -->
-					<section id="music-player" style="text-align: center; padding: 2em;">
-  						<h2>🎵 海滩播放列表</h2>
-  						<audio id="audio" controls autoplay>
- 						   	<source src="music/song1.mp3" type="audio/mpeg">
-    							你的浏览器无法播放此音频，请尝试更新浏览器或使用其他浏览器。
- 						</audio>
-			  			<div style="margin-top: 1em;">
-			   				<button onclick="prevSong()">⏮ 上一首</button>
-			    				<button onclick="nextSong()">⏭ 下一首</button>
-						  </div>
-						  <p id="now-playing" style="margin-top: 1em;">正在播放: song1.mp3</p>
-						</section>
-						
-						<script>
-						  const playlist = [
-						    'music/song1.mp3',
-						    'music/song2.mp3',
-						    'music/song3.mp3',
-						    'music/song4.mp3'
-						  ];
-						
-						  let currentTrack = 0;
-						  const audio = document.getElementById('audio');
-						  const nowPlaying = document.getElementById('now-playing');
-						
-						  // 自动加载和播放当前曲目
-						  function loadTrack(index) {
-						    audio.src = playlist[index];
-						    audio.play();
-						    nowPlaying.innerText = "正在播放: " + playlist[index].split('/').pop();
-						  }
-						
-						  function nextSong() {
-						    currentTrack = (currentTrack + 1) % playlist.length;
-						    loadTrack(currentTrack);
-						  }
-						
-						  function prevSong() {
-						    currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
-						    loadTrack(currentTrack);
-						  }
-						
-						  // 自动播放下一首（播放完自动切换）
-						  audio.addEventListener('ended', nextSong);
-						</script>
-
 				<!-- CTA -->
 					<section id="cta" class="wrapper style4">
 						<div class="inner">
