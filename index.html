@@ -45,7 +45,7 @@
 							<h2>应许之地</h2>
 							<p>当你独自面对这一切的时候<br />
 							当夜晚吞噬你灵魂的时候<br />
-							我知道你一直在我脑海里.</p>
+							我知道你一直在我脑海里</p>
 							<ul class="actions special">
 								<li><a href="#" class="button primary">继续</a></li>
 							</ul>
@@ -57,10 +57,10 @@
 					<section id="one" class="wrapper special" style="background-color: #87a9ed;">
 						<div class="inner">
 							<header class="major">
-								<h2>那些夜奔的群星<br />
-								总是触动着我</h2>
-								<p>“现代性就是过渡、短暂、偶然，就是艺术的另一半，<br />
-								另一半是永恒和不变”                   ——波德莱尔</p>
+								<h2>“现代性就是过渡、短暂、偶然，就是艺术的一半，<br />
+								另一半是永恒和不变”                   ——波德莱尔</h2>
+								<p>那些夜奔的群星<br />
+								总是触动着我</p>
 							</header>
 							<ul class="icons major" style="display: flex; justify-content: center; gap: 2em;">
 								<li><img src="images/icon1.png" style="width:100px;" /></li>
@@ -75,7 +75,7 @@
 						<section class="spotlight">
 							<div class="image"><img src="images/pic01.png" alt="" /></div><div class="content">
 								<h2>Portfolio<br />
-								作品集</h2>
+								个人作品集</h2>
 								<p>在城市里我无处可去</p>
 							</div>
 						</section>
@@ -83,7 +83,7 @@
 							<div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
 								<h2>流浪在<br />
 								21世纪</h2>
-								<p>那些生活里的瞬间</p>
+								<p>看见那些生活里的瞬间</p>
 							</div>
 						</section>
 						<section class="spotlight">
@@ -96,15 +96,29 @@
 					</section>
 
 				<!-- Three -->
-					<section id="three" class="wrapper style3 special" style="background-image: url('images/beach-night.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-						<div class="inner">
+					<section id="three" class="wrapper style3 special" style="position: relative; overflow: hidden;">
+							<div style="
+							  position: absolute;
+							  top: 0; left: 0;
+							  width: 100%;
+							  height: 100%;
+							  background-image: url('images/beach-night.jpg');
+							  background-size: contain;
+							  background-repeat: no-repeat;
+							  background-position: center top;
+							  opacity: 0.3;
+							  z-index: 0;
+							"></div>
+							<div class="inner" style="position: relative; z-index: 1;">
 							<header class="major">
 								<h2>欢迎来到周五晚上的海滩</h2>
 								<p>这里没有人，气温适宜，音乐无处不在<br />
 								欣赏远处的月亮与大海，享受一个宁静的夜晚吧</p>
+							</header>
+
 							
                                 <!-- Four --><!-- 音乐播放器 -->
-					<section id="music-player" style="text-align: center; padding: 2em;">
+					<section id="music-player" style="text-align: center; padding: 4em 2em 2em 2em;">
   						<h2>🎵 海滩播放列表</h2>
   						<audio id="audio" controls autoplay>
  						   	<source src="music/song1.mp3" type="audio/mpeg">
