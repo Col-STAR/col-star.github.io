@@ -36,32 +36,45 @@
 
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2em;
-            margin-top: 3em;
+            flex-direction: column; /* 一行一张 */
+            gap: 10px;
+            padding: 20px;
         }
 
-        .portfolio-item {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-        }
-
-        .portfolio-item img {
+       
+        .portfolio-grid img {
             width: 100%;
+            height: auto;
             display: block;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
         }
 
-        .portfolio-item .content {
-            padding: 1em;
-            text-align: center;
+        .portfolio-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox:target {
+            display: flex;
         }
     </style>
 </head>
@@ -109,134 +122,11 @@
                 </header>
 
 
-
-             
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            margin: 0;
-            background: #f5f5f5;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 10px;
-            padding: 10px;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            display: block;
-            cursor: pointer;
-        }
-        /* Lightbox 背景 */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .lightbox:target {
-            display: flex;
-        <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <title>作品集</title>
-    <style>
-        body { margin: 0; background: #f5f5f5; }
-        .gallery {
-            display: flex;
-            flex-direction: column; /* 垂直排列 */
-            gap: 10px;
-        }
-        .gallery img {
-            width: 100%;       /* 每张图占满整行 */
-            height: auto;
-            display: block;
-            cursor: pointer;
-            margin-bottom: 10px; /* 图片间距 */
-        }
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .lightbox:target {
-            display: flex;
-        }
-    </style>
-</head>
-<body>
-    <div class="gallery" id="gallery"></div>
-    <div id="lightboxes"></div>
-
-    <script>
-        const images = [
-            "作品集/幻灯片1.jpg", "作品集/幻灯片2.jpg", "作品集/幻灯片3.jpg", "作品集/幻灯片4.jpg", "作品集/幻灯片5.jpg"
-        ]; // 把图片文件名写在这里
-
-        const gallery = document.getElementById("gallery");
-        const lightboxes = document.getElementById("lightboxes");
-
-        images.forEach((img, index) => {
-            const id = `img${index + 1}`;
-            gallery.innerHTML += `<a href="#${id}"><img src="/${img}" alt=""></a>`;
-            lightboxes.innerHTML += `<div id="${id}" class="lightbox"><a href="#"><img src="作品集/${img}" alt=""></a></div>`;
-        });
-    </script>
-</body>
-</html>
-
-
-
-                
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <img src="images/work1.png" alt="作品1">
-                        <div class="content">
-                            <h3>系列 1</h3>
-                            <p>作品简介描述文字</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/work2.png" alt="作品2">
-                        <div class="content">
-                            <h3>系列 2</h3>
-                            <p>作品简介描述文字</p>
-                        </div>
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="c-3透明底.png" alt="作品3">
-                        <div class="content">
-                            <h3>系列 3</h3>
-                            <p>作品简介描述文字</p>
-                        </div>
-                    </div>
-                </div>
+ <div class="portfolio-grid" id="gallery"></div>
+                <div id="lightboxes"></div>
             </div>
         </section>
+             
 
         <!-- Footer -->
         <footer id="footer">
@@ -253,6 +143,25 @@
         </footer>
 
     </div>
+ <!-- JS -->
+    <script>
+        const images = [
+            "portfolio/s1.jpg"
+            "portfolio/s2.jpg",
+            "portfolio/s3.jpg",
+            "portfolio/s4.jpg",
+            "portfolio/s5.jpg"
+        ];
+
+        const gallery = document.getElementById("gallery");
+        const lightboxes = document.getElementById("lightboxes");
+
+        images.forEach((img, index) => {
+            const id = `img${index + 1}`;
+            gallery.innerHTML += `<a href="#${id}"><img src="${img}" alt="作品${index + 1}"></a>`;
+            lightboxes.innerHTML += `<div id="${id}" class="lightbox"><a href="#"><img src="${img}" alt="作品${index + 1}"></a></div>`;
+        });
+    </script>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
