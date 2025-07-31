@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>个人作品集 - 周五晚上的海滩</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" /> <!-- 使用主站的CSS -->
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        /* 作品集页面专属样式 */
+        #hero {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            background: url('images/cover.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* 半透明遮罩 */
+        }
+
+        #hero .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2em;
+            margin-top: 3em;
+        }
+
+        .portfolio-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            display: block;
+        }
+
+        .portfolio-item .content {
+            padding: 1em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="is-preload">
+
+    <!-- 页面包裹 -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h1><a href="index.html">周五晚上的海滩</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="special">
+                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                        <div id="menu">
+                            <ul>
+                                <li><a href="index.html">主页</a></li>
+                                <li><a href="generic.html">关于我</a></li>
+                                <li><a href="pageA.html">作品集</a></li>
+                                <li><a href="#">水星商店</a></li>
+                                <li><a href="#">注册</a></li>
+                                <li><a href="#">登录</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero 封面 -->
+        <section id="hero">
+            <div class="content">
+                <h2>欢迎来到我的作品集</h2>
+                <p>记录设计与开发的旅程</p>
+            </div>
+        </section>
+
+        <!-- 主体内容 -->
+        <section class="wrapper style2">
+            <div class="inner">
+                <header class="major">
+                    <h2>个人作品展示</h2>
+                    <p>这些是我近期完成的一些项目</p>
+                </header>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <img src="images/work1.png" alt="作品1">
+                        <div class="content">
+                            <h3>作品 1</h3>
+                            <p>作品简介描述文字</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="images/work2.png" alt="作品2">
+                        <div class="content">
+                            <h3>作品 2</h3>
+                            <p>作品简介描述文字</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <img src="images/work3.png" alt="作品3">
+                        <div class="content">
+                            <h3>作品 3</h3>
+                            <p>作品简介描述文字</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; 水星冲浪手</li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
