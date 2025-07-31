@@ -151,29 +151,63 @@
         }
         .lightbox:target {
             display: flex;
+        <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>作品集</title>
+    <style>
+        body { margin: 0; background: #f5f5f5; }
+        .gallery {
+            display: block; /* 一排一张 */
+            padding: 10px;
+        }
+        .gallery img {
+            width: 100%;       /* 每张图占满整行 */
+            height: auto;
+            display: block;
+            cursor: pointer;
+            margin-bottom: 10px; /* 图片间距 */
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .lightbox:target {
+            display: flex;
         }
     </style>
 </head>
 <body>
-    <div class="gallery">
-        <a href="#img1"><img src="作品集/幻灯片1.jpg" alt=""></a>
-        <a href="#img2"><img src="作品集/幻灯片3.jpg" alt=""></a>
-        <a href="#img3"><img src="作品集/幻灯片4.jpg" alt=""></a>
-    </div>
+    <div class="gallery" id="gallery"></div>
+    <div id="lightboxes"></div>
 
-    <!-- Lightbox -->
-    <div id="img1" class="lightbox">
-        <a href="#"><img src="作品集/幻灯片1.jpg" alt=""></a>
-    </div>
-    <div id="img2" class="lightbox">
-        <a href="#"><img src="作品集/幻灯片3.jpg" alt=""></a>
-    </div>
-    <div id="img3" class="lightbox">
-        <a href="#"><img src="作品集/幻灯片4.jpg" alt=""></a>
-    </div>
+    <script>
+        const images = [
+            "作品集/幻灯片1.jpg", "作品集/幻灯片2.jpg", "作品集/幻灯片3.jpg", "作品集/幻灯片4.jpg", "作品集/幻灯片5.jpg"
+        ]; // 把图片文件名写在这里
+
+        const gallery = document.getElementById("gallery");
+        const lightboxes = document.getElementById("lightboxes");
+
+        images.forEach((img, index) => {
+            const id = `img${index + 1}`;
+            gallery.innerHTML += `<a href="#${id}"><img src="作品集/${img}" alt=""></a>`;
+            lightboxes.innerHTML += `<div id="${id}" class="lightbox"><a href="#"><img src="作品集/${img}" alt=""></a></div>`;
+        });
+    </script>
 </body>
 </html>
-
 
 
 
