@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <html>
 <head>
     <title>个人作品集</title>
@@ -111,7 +110,7 @@
 
 
 
-               <!DOCTYPE html>
+             
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -159,8 +158,9 @@
     <style>
         body { margin: 0; background: #f5f5f5; }
         .gallery {
-            display: block; /* 一排一张 */
-            padding: 10px;
+            display: flex;
+            flex-direction: column; /* 垂直排列 */
+            gap: 10px;
         }
         .gallery img {
             width: 100%;       /* 每张图占满整行 */
@@ -202,7 +202,7 @@
 
         images.forEach((img, index) => {
             const id = `img${index + 1}`;
-            gallery.innerHTML += `<a href="#${id}"><img src="作品集/${img}" alt=""></a>`;
+            gallery.innerHTML += `<a href="#${id}"><img src="/${img}" alt=""></a>`;
             lightboxes.innerHTML += `<div id="${id}" class="lightbox"><a href="#"><img src="作品集/${img}" alt=""></a></div>`;
         });
     </script>
